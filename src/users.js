@@ -6,6 +6,19 @@ const users = require("./data").default;
 const getUsers = () => {
   return users;
 };
+function fetchUserData (users) { 
+  return new Promise((resolve, reject) => {
+    setTimeout(() => { 
+      const user = userData[users];
+      if (user) {
+        resolve(users);
+
+        } else {
+          reject(new Error("User not found")); 
+        }
+      }, 10000); 
+    }); 
+}
 
 // Filters users by specific ID
 const getUser = (id) => {
