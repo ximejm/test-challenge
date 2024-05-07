@@ -19,6 +19,16 @@ function fetchUserData (users) {
       }, 10000); 
     }); 
 }
+const { fetchUserData } = require('./users.js');
+
+fetchUserData(1)
+  .then(user => {
+    console.log("User data:", user);
+  })
+  .catch(error => {
+    console.error("Error:", error.message);
+  });
+
 
 // Filters users by specific ID
 const getUser = (id) => {
