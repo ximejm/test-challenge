@@ -6,7 +6,7 @@ const users = require("./data").default;
 const getUsers = () => {
   return users;
 };
-function fetchUserData (users) { 
+function getUsers (users) { 
   return new Promise((resolve, reject) => {
     setTimeout(() => { 
       const user = userData[users];
@@ -16,12 +16,11 @@ function fetchUserData (users) {
         } else {
           reject(new Error("User not found")); 
         }
-      }, 10000); 
+      }, 2000); 
     }); 
 }
-const { fetchUserData } = require('./users.js');
 
-fetchUserData(1)
+getUsers(1)
   .then(user => {
     console.log("User data:", user);
   })
@@ -34,6 +33,14 @@ fetchUserData(1)
 const getUser = (id) => {
   return users.find((user) => user.id === id);
 };
+
+getUser(3)
+.then (id => { 
+  console.log("user id:", id); 
+})
+.catch(error => { 
+  console.error("Error:", error.message);
+})
 
 // test
 // console.log(getUser(3));
