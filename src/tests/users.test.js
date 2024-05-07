@@ -7,16 +7,26 @@ import { getUser, getUsers } from "../users";
 
 // READ documentation
 
-const users = require ("./data.js")
-describe("getUserByUserName", () => {
+const getUser = require ("./data.js")
+describe("getUser", () => {
     it('it should find a user by their username', () => { 
-        const users = getUserByUserName('hpLover4')
+        const users = getUser('hpLover4')
         expect(users).toHaveProperty('username', 'hpLover4');
         expect(users).toHaveProperty("id", 1);
     });
     it("Should return undefined for non existend users", () => {
-        const users = getUserByUserName("goosemontionless");
+        const users = getUser("goosemontionless");
         expect(users).toBeUndefined(); 
     })
     });
-    
+const getUsers = require ("./data.js")
+describe("getUser", () => {
+    it('it should find a user by their id', () => { 
+        const users = getUsers[2]
+        expect(users).toHaveProperty('id', '3');
+    });
+    it("Should return undefined for non existend users", () => {
+        const users = getUsers("non existend");
+        expect(users).toBeUndefined(); 
+    })
+    });
